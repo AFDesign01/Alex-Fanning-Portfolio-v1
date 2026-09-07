@@ -109,7 +109,7 @@ export default function HomePage() {
           transition={{ duration: 0.9, delay: 0.2 }}
         >
           <div className="portraitPlaceholder">
-            <span>YOUR PORTRAIT</span>
+            <img className="portraitImg" src="/images/alex-portrait.png" alt="Alex Fanning" />
             <div className="signature">Alex Fanning</div>
           </div>
           <div className="portraitMeta">GRAPHIC DESIGNER<br />BASED IN THE UK</div>
