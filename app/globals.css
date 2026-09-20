@@ -63,6 +63,16 @@ nav a:hover{color:var(--red)}
 .facts p{font-size:15px;margin:0;color:#b9b9b9;line-height:1.5}
 blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(34px,3vw,46px);line-height:.98;color:#efefef}
 
+/* skills */
+.skills{border-top:1px solid var(--line)}
+.skillsIntro{font-family:var(--font-body);font-size:16px;color:#b9b9b9;margin:0 0 48px}
+.skillsGrid{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;row-gap:36px}
+.skillHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.skillName{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:.02em;color:#f0f0f0}
+.skillPercent{font-family:var(--font-body);font-weight:700;font-size:14px;color:var(--red)}
+.skillBar{width:100%;height:6px;border-radius:3px;background:#161616;border:1px solid #232323;overflow:hidden}
+.skillFill{height:100%;border-radius:3px;background:linear-gradient(90deg,#b8291a,var(--red))}
+
 /* work */
 .sectionHead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
 .sectionHead>a{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.14em;border-bottom:1px solid #444;padding-bottom:6px;transition:.2s}
@@ -103,6 +113,7 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
   .portraitPlaceholder{height:430px}
   .about{grid-template-columns:1fr}
   .facts, blockquote{border-left:0;padding-left:0}
+  .skillsGrid{grid-template-columns:1fr;row-gap:28px}
   .projectGrid{grid-template-columns:1fr;grid-template-rows:none}
   .projectCard.span2{grid-row:auto}
   .projectCard:not(.span2) .projectArt{aspect-ratio:1.4}

@@ -9,6 +9,15 @@ const projects = [
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand' },
 ];
 
+const skills = [
+  { name: 'Adobe Illustrator', level: 90 },
+  { name: 'Adobe Photoshop', level: 85 },
+  { name: 'Adobe InDesign', level: 88 },
+  { name: 'Figma', level: 83 },
+  { name: 'Blender', level: 85 },
+  { name: 'Creativity', level: 100 },
+];
+
 function Reveal({ children, delay = 0 }) {
   return (
     <motion.div
@@ -83,8 +92,9 @@ export default function HomePage() {
           <span>GRAPHIC DESIGNER</span>
         </a>
         <nav>
-          <a href="#work">PORTFOLIO</a>
           <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#work">PORTFOLIO</a>
           <a href="#contact">CONTACT</a>
           <span className="dot" />
         </nav>
@@ -144,10 +154,40 @@ export default function HomePage() {
         </Reveal>
       </section>
 
+      <section className="skills shell section" id="skills">
+        <Reveal>
+          <div className="sectionNum">02<i /></div>
+          <h2>SKILLS</h2>
+          <p className="skillsIntro">Tools and abilities I bring to every project.</p>
+        </Reveal>
+
+        <div className="skillsGrid">
+          {skills.map((s, i) => (
+            <Reveal key={s.name} delay={i * 0.06}>
+              <div className="skillRow">
+                <div className="skillHead">
+                  <span className="skillName">{s.name}</span>
+                  <span className="skillPercent">{s.level}%</span>
+                </div>
+                <div className="skillBar">
+                  <motion.div
+                    className="skillFill"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${s.level}%` }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 1, delay: i * 0.06, ease: 'easeOut' }}
+                  />
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       <section className="work shell section" id="work">
         <div className="sectionHead">
           <div>
-            <div className="sectionNum">02<i /></div>
+            <div className="sectionNum">03<i /></div>
             <h2>SELECTED WORK</h2>
           </div>
           <a href="#contact">SEE THE REST <span>→</span></a>
@@ -177,7 +217,7 @@ export default function HomePage() {
 
       <section className="contact shell section" id="contact">
         <Reveal>
-          <div className="sectionNum">03<i /></div>
+          <div className="sectionNum">04<i /></div>
           <h2>LET’S<br/>CREATE<br/><span>TOGETHER.</span></h2>
         </Reveal>
         <Reveal delay={0.08}>
