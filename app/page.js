@@ -7,7 +7,7 @@ import { projects as projectPages } from './projectsData';
 const projects = [
   { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
   { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web' },
-  { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand' },
+  { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand', href: '/projects/vital-bloom', thumb: '/projects/vital-bloom/vital-bloom-thumb.png' },
 ];
 
 const workProjects = [
@@ -35,6 +35,10 @@ function Reveal({ children, delay = 0 }) {
       {children}
     </motion.div>
   );
+}
+
+function Art({ href, children, ...props }) {
+  return href ? <a href={href} {...props}>{children}</a> : <div {...props}>{children}</div>;
 }
 
 function Icon({ name }) {
@@ -250,11 +254,11 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
-              <div className={`projectArt ${p.cls}`}>
+              <Art className={`projectArt ${p.cls}`} href={p.href}>
                 <motion.div className="projectArtInner" whileHover={{ scale: 1.05 }} transition={{ duration: 0.4 }}>
                   {p.thumb && <img className="projectThumb" src={p.thumb} alt={`${p.title} project thumbnail`} />}
                 </motion.div>
-              </div>
+              </Art>
               <div className="projectMeta">
                 <div><h3>{p.title.toUpperCase()}</h3><p>{p.kicker}</p></div>
                 <a href={p.href || "#contact"} className="viewProject">VIEW PROJECT <span>→</span></a>
