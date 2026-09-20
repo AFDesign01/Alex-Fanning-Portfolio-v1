@@ -1,10 +1,17 @@
-import { Anton, Inter, Alex_Brush } from 'next/font/google';
+import { Anton, Bebas_Neue, Inter, Alex_Brush } from 'next/font/google';
 import './globals.css';
 
 const anton = Anton({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-display',
+  display: 'swap',
+});
+
+const bebas = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-name',
   display: 'swap',
 });
 
@@ -29,7 +36,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable} ${alexBrush.variable}`}>
+    <html lang="en" className={`${anton.variable} ${bebas.variable} ${inter.variable} ${alexBrush.variable}`}>
       <body>{children}</body>
     </html>
   );
