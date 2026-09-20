@@ -4,12 +4,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 const projects = [
-  { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall' },
+  { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
   { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web' },
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand' },
 ];
 
-const workProjects = Array.from({ length: 10 }, (_, i) => `Project ${i + 1}`);
+const workProjects = [
+  { name: 'Venom Vape', href: '/projects/venom-vape' },
+  ...Array.from({ length: 9 }, (_, i) => ({ name: `Project ${i + 2}`, href: '#work' })),
+];
 
 const skills = [
   { name: 'Adobe Illustrator', level: 90 },
@@ -132,7 +135,7 @@ export default function HomePage() {
                   transition={{ duration: 0.18 }}
                 >
                   {workProjects.map((p) => (
-                    <a key={p} href="#work" onClick={() => setWorkOpen(false)}>{p.toUpperCase()}</a>
+                    <a key={p.name} href={p.href} onClick={() => setWorkOpen(false)}>{p.name.toUpperCase()}</a>
                   ))}
                 </motion.div>
               )}
@@ -247,11 +250,13 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
               <div className={`projectArt ${p.cls}`}>
-                <motion.div className="projectArtInner" whileHover={{ scale: 1.05 }} transition={{ duration: 0.4 }} />
+                <motion.div className="projectArtInner" whileHover={{ scale: 1.05 }} transition={{ duration: 0.4 }}>
+                  {p.thumb && <img className="projectThumb" src={p.thumb} alt={`${p.title} project thumbnail`} />}
+                </motion.div>
               </div>
               <div className="projectMeta">
                 <div><h3>{p.title.toUpperCase()}</h3><p>{p.kicker}</p></div>
-                <a href="#contact" className="viewProject">VIEW PROJECT <span>→</span></a>
+                <a href={p.href || "#contact"} className="viewProject">VIEW PROJECT <span>→</span></a>
               </div>
             </motion.article>
           ))}
