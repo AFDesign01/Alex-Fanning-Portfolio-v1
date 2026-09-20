@@ -215,16 +215,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="contact shell section" id="contact">
+      <section className="contact cv shell section" id="contact">
         <Reveal>
-          <div className="sectionNum">04<i /></div>
-          <h2>LET’S<br/>CREATE<br/><span>TOGETHER.</span></h2>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <div className="contactCopy">
-            <p>Have a project in mind or just want to say hello? I’d love to hear from you.</p>
-            <a className="outlineBtn" href="mailto:alex.fanning0201@gmail.com">GET IN TOUCH <span>→</span></a>
-          </div>
+          <div className="sectionNum center">04<i /></div>
+          <h2>WANT MY <span>CV?</span></h2>
+          <a className="outlineBtn" href="/cv/alex-fanning-cv.pdf" download>DOWNLOAD MY CV <span>→</span></a>
         </Reveal>
       </section>
 
