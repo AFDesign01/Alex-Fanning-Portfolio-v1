@@ -18,7 +18,7 @@ a{color:inherit;text-decoration:none}
 .shell{width:min(1180px,calc(100% - 48px));margin:0 auto;position:relative;z-index:1}
 
 /* header */
-.topbar{display:flex;justify-content:space-between;align-items:flex-start;padding:30px 0 22px}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;padding:30px 0 22px;position:relative;z-index:50}
 .brand{display:flex;flex-direction:column;gap:3px}
 .brand strong{font-family:var(--font-body);font-weight:800;font-size:16px;letter-spacing:.03em}
 .brand span{font-family:var(--font-body);font-weight:500;font-size:9.5px;letter-spacing:.16em;color:var(--muted)}
@@ -26,6 +26,15 @@ nav{display:flex;gap:32px;align-items:center;font-size:11.5px;letter-spacing:.12
 nav a{color:#dcdcdc;transition:color .2s}
 nav a:hover{color:var(--red)}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 20px rgba(230,64,44,.75)}
+
+.navDropdown{position:relative}
+.navDropBtn{background:none;border:none;padding:0;margin:0;font:inherit;color:#dcdcdc;letter-spacing:.12em;font-weight:600;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:color .2s}
+.navDropBtn:hover{color:var(--red)}
+.caret{font-size:9px;line-height:1;transition:transform .2s}
+.caret.open{transform:rotate(180deg)}
+.dropdownMenu{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%);min-width:190px;background:#0b0b0b;border:1px solid #262626;box-shadow:0 26px 60px rgba(0,0,0,.55);display:flex;flex-direction:column;padding:8px 0;z-index:30}
+.dropdownMenu a{display:block;padding:11px 22px;font-size:11px;font-weight:600;letter-spacing:.1em;color:#d4d4d4;white-space:nowrap;transition:background .15s,color .15s}
+.dropdownMenu a:hover{color:var(--red);background:#151515}
 
 /* hero */
 .hero{min-height:720px;display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;padding:56px 0 110px}
@@ -122,7 +131,7 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
 @media (max-width:620px){
   .shell{width:min(100% - 28px,1180px)}
   .topbar{align-items:center}
-  .topbar nav a{display:none}
+  .topbar nav a,.topbar nav .navDropdown{display:none}
   .hero{padding-top:34px}
   .hero h1{font-size:64px}
   .intro{font-size:16px}

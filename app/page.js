@@ -1,13 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 const projects = [
   { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall' },
   { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web' },
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand' },
 ];
+
+const workProjects = Array.from({ length: 10 }, (_, i) => `Project ${i + 1}`);
 
 const skills = [
   { name: 'Adobe Illustrator', level: 90 },
@@ -67,6 +69,8 @@ function Icon({ name }) {
 
 export default function HomePage() {
   const [mouse, setMouse] = useState({ x: 50, y: 20 });
+  const [workOpen, setWorkOpen] = useState(false);
+  const workRef = useRef(null);
 
   useEffect(() => {
     const move = (e) => {
@@ -78,6 +82,20 @@ export default function HomePage() {
     window.addEventListener('mousemove', move);
     return () => window.removeEventListener('mousemove', move);
   }, []);
+
+  useEffect(() => {
+    if (!workOpen) return;
+    const closeIfOutside = (e) => {
+      if (workRef.current && !workRef.current.contains(e.target)) setWorkOpen(false);
+    };
+    const closeOnEscape = (e) => { if (e.key === 'Escape') setWorkOpen(false); };
+    document.addEventListener('mousedown', closeIfOutside);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('mousedown', closeIfOutside);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [workOpen]);
 
   return (
     <main
@@ -94,7 +112,32 @@ export default function HomePage() {
         <nav>
           <a href="#about">ABOUT</a>
           <a href="#skills">SKILLS</a>
-          <a href="#work">PORTFOLIO</a>
+          <div className="navDropdown" ref={workRef}>
+            <button
+              type="button"
+              className="navDropBtn"
+              onClick={() => setWorkOpen((o) => !o)}
+              aria-expanded={workOpen}
+              aria-haspopup="true"
+            >
+              PORTFOLIO <span className={`caret ${workOpen ? 'open' : ''}`}>▾</span>
+            </button>
+            <AnimatePresence>
+              {workOpen && (
+                <motion.div
+                  className="dropdownMenu"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  {workProjects.map((p) => (
+                    <a key={p} href="#work" onClick={() => setWorkOpen(false)}>{p.toUpperCase()}</a>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <a href="#contact">CONTACT</a>
           <span className="dot" />
         </nav>
