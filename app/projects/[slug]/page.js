@@ -1,9 +1,24 @@
-export const metadata = {
-  title: 'Venom Vape — Alex Fanning',
-  description: 'Venom Vape branding and packaging design by Alex Fanning.',
-};
+import { notFound } from 'next/navigation';
+import { projects } from '../../projectsData';
 
-export default function VenomVapePage() {
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export function generateMetadata({ params }) {
+  const project = projects.find((p) => p.slug === params.slug);
+  if (!project) return {};
+  return {
+    title: `${project.name} — Alex Fanning`,
+    description: project.intro,
+  };
+}
+
+export default function ProjectPage({ params }) {
+  const project = projects.find((p) => p.slug === params.slug);
+  if (!project) notFound();
+  const [first, ...rest] = project.name.toUpperCase().split(' ');
+
   return (
     <main className="site projectPage">
       <header className="topbar shell">
@@ -18,16 +33,13 @@ export default function VenomVapePage() {
       </header>
 
       <section className="projectIntro shell">
-        <p className="eyebrow">PACKAGING / BRANDING</p>
-        <h1>VENOM <span>VAPE</span></h1>
-        <p className="intro">Brand identity, typography, packaging, characters, web banner and point-of-sale posters for Venom — “Let the flavour sink in.”</p>
+        <p className="eyebrow">{project.eyebrow}</p>
+        <h1>{first} <span>{rest.join(' ')}</span></h1>
+        <p className="intro">{project.intro}</p>
       </section>
 
       <section className="projectSheet shell">
-        <img
-          src="/projects/venom-vape/venom-full.webp"
-          alt="Venom Vape project: logo, typography, packaging, bottles, range, characters, web banner and POS posters"
-        />
+        <img src={project.image} alt={project.alt} />
       </section>
 
       <section className="projectFooterNav shell">

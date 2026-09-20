@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { projects as projectPages } from './projectsData';
 
 const projects = [
   { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
@@ -10,8 +11,8 @@ const projects = [
 ];
 
 const workProjects = [
-  { name: 'Venom Vape', href: '/projects/venom-vape' },
-  ...Array.from({ length: 9 }, (_, i) => ({ name: `Project ${i + 2}`, href: '#work' })),
+  ...projectPages.map((p) => ({ name: p.name, href: `/projects/${p.slug}` })),
+  ...Array.from({ length: 8 }, (_, i) => ({ name: `Project ${i + 3}`, href: '#work' })),
 ];
 
 const skills = [
