@@ -112,10 +112,15 @@ export default function HomePage() {
             <img className="portraitImg" src="/images/alex-portrait.png" alt="Alex Fanning" />
             <div className="signature">Alex Fanning</div>
           </div>
-          <h2 className="portraitName">ALEX FANNING</h2>
           <div className="portraitMeta">GRAPHIC DESIGNER<br />BASED IN THE UK</div>
         </motion.div>
       </section>
+
+      <Reveal>
+        <div className="nameBanner">
+          <h2>ALEX FANNING</h2>
+        </div>
+      </Reveal>
 
       <section className="about shell section" id="about">
         <Reveal>
