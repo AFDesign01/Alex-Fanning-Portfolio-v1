@@ -1,18 +1,12 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { projects as projectPages } from './projectsData';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const projects = [
   { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
   { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web', href: '/projects/fresh', thumb: '/projects/fresh/fresh-thumb.png' },
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand', href: '/projects/vital-bloom', thumb: '/projects/vital-bloom/vital-bloom-thumb.png' },
-];
-
-const workProjects = [
-  ...projectPages.map((p) => ({ name: p.name, href: `/projects/${p.slug}` })),
-  ...Array.from({ length: 7 }, (_, i) => ({ name: `Project ${i + 4}`, href: '#work' })),
 ];
 
 const skills = [
@@ -77,8 +71,6 @@ function Icon({ name }) {
 
 export default function HomePage() {
   const [mouse, setMouse] = useState({ x: 50, y: 20 });
-  const [workOpen, setWorkOpen] = useState(false);
-  const workRef = useRef(null);
 
   useEffect(() => {
     const move = (e) => {
@@ -91,19 +83,6 @@ export default function HomePage() {
     return () => window.removeEventListener('mousemove', move);
   }, []);
 
-  useEffect(() => {
-    if (!workOpen) return;
-    const closeIfOutside = (e) => {
-      if (workRef.current && !workRef.current.contains(e.target)) setWorkOpen(false);
-    };
-    const closeOnEscape = (e) => { if (e.key === 'Escape') setWorkOpen(false); };
-    document.addEventListener('mousedown', closeIfOutside);
-    document.addEventListener('keydown', closeOnEscape);
-    return () => {
-      document.removeEventListener('mousedown', closeIfOutside);
-      document.removeEventListener('keydown', closeOnEscape);
-    };
-  }, [workOpen]);
 
   return (
     <main
@@ -120,32 +99,7 @@ export default function HomePage() {
         <nav>
           <a href="#about">ABOUT</a>
           <a href="#skills">SKILLS</a>
-          <div className="navDropdown" ref={workRef}>
-            <button
-              type="button"
-              className="navDropBtn"
-              onClick={() => setWorkOpen((o) => !o)}
-              aria-expanded={workOpen}
-              aria-haspopup="true"
-            >
-              PORTFOLIO <span className={`caret ${workOpen ? 'open' : ''}`}>▾</span>
-            </button>
-            <AnimatePresence>
-              {workOpen && (
-                <motion.div
-                  className="dropdownMenu"
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  {workProjects.map((p) => (
-                    <a key={p.name} href={p.href} onClick={() => setWorkOpen(false)}>{p.name.toUpperCase()}</a>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <a href="/projects">PROJECTS</a>
           <a href="#contact">CONTACT</a>
           <span className="dot" />
         </nav>
