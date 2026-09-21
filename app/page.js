@@ -113,7 +113,7 @@ export default function HomePage() {
             <span>WEB</span><br />
             BRANDING
           </h1>
-          <p className="intro">Thoughtful design that gives brands a stronger presence, on shelf, on screen and in the real world.</p>
+          <p className="intro">Years of experience working with FMCG brands to deliver designs that sell.</p>
           <a href="#work" className="outlineBtn">VIEW MY WORK <span>→</span></a>
         </Reveal>
 
