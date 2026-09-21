@@ -225,7 +225,7 @@ export default function HomePage() {
       <section className="contact cv shell section" id="contact">
         <Reveal>
           <h2>WANT MY <span>CV?</span></h2>
-          <a className="outlineBtn" href="/cv/alex-fanning-cv.pdf" download>DOWNLOAD MY CV <span>→</span></a>
+          <a className="outlineBtn" href="/cv/Alex_Fanning_Graphic_Designer_CV.pdf" download>DOWNLOAD MY CV <span>→</span></a>
         </Reveal>
       </section>
 
