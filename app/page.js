@@ -241,7 +241,7 @@ export default function HomePage() {
             <div className="sectionNum">03<i /></div>
             <h2>SELECTED WORK</h2>
           </div>
-          <a href="#contact">SEE THE REST <span>→</span></a>
+          <a href="/projects">SEE THE REST <span>→</span></a>
         </div>
 
         <div className="projectGrid">

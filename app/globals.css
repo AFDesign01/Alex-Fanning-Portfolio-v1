@@ -155,3 +155,13 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
 .projectSheet img{width:min(900px,100%);height:auto;display:block;border:1px solid #171717}
 .projectFooterNav{padding:24px 0 96px;text-align:center}
 @media (max-width:620px){.projectIntro h1{font-size:64px}}
+
+/* all projects page */
+.allProjects{padding-bottom:40px}
+.allGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.allThumb{display:block;position:relative;overflow:hidden;aspect-ratio:1.55;background:#111;border:1px solid #171717}
+.allThumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.allThumb:hover img{transform:scale(1.06)}
+.allThumb:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+@media (max-width:900px){.allGrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.allGrid{grid-template-columns:1fr}}

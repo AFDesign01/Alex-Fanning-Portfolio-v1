@@ -5,6 +5,7 @@ export const projects = [
     eyebrow: 'PACKAGING / BRANDING',
     intro: 'Brand identity, typography, packaging, characters, web banner and point-of-sale posters for Venom — “Let the flavour sink in.”',
     image: '/projects/venom-vape/venom-full.webp',
+    thumb: '/projects/venom-vape/venom-thumb.png',
     alt: 'Venom Vape project: logo, typography, packaging, bottles, range, characters, web banner and POS posters',
   },
   {
@@ -13,6 +14,7 @@ export const projects = [
     eyebrow: 'PACKAGING / BRANDING',
     intro: 'Brand identity, typography and packaging for Vital Bloom, a colourful range of daily supplements.',
     image: '/projects/vital-bloom/vital-bloom-full.webp',
+    thumb: '/projects/vital-bloom/vital-bloom-thumb.png',
     alt: 'Vital Bloom project: logo, typography, packaging and the product range',
   },
   {
@@ -21,6 +23,7 @@ export const projects = [
     eyebrow: 'WEB DESIGN / BRANDING',
     intro: 'Brand identity, can packaging and website design for Fresh Nutrition, a subscription drinks brand with weekly, monthly and yearly plans.',
     image: '/projects/fresh/fresh-full.webp',
+    thumb: '/projects/fresh/fresh-thumb.png',
     alt: 'Fresh Nutrition project: logo, can range, website design and subscription plans',
   },
 ];
