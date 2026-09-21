@@ -6,13 +6,13 @@ import { projects as projectPages } from './projectsData';
 
 const projects = [
   { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
-  { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web' },
+  { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web', href: '/projects/fresh', thumb: '/projects/fresh/fresh-thumb.png' },
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand', href: '/projects/vital-bloom', thumb: '/projects/vital-bloom/vital-bloom-thumb.png' },
 ];
 
 const workProjects = [
   ...projectPages.map((p) => ({ name: p.name, href: `/projects/${p.slug}` })),
-  ...Array.from({ length: 8 }, (_, i) => ({ name: `Project ${i + 3}`, href: '#work' })),
+  ...Array.from({ length: 7 }, (_, i) => ({ name: `Project ${i + 4}`, href: '#work' })),
 ];
 
 const skills = [

@@ -15,4 +15,12 @@ export const projects = [
     image: '/projects/vital-bloom/vital-bloom-full.webp',
     alt: 'Vital Bloom project: logo, typography, packaging and the product range',
   },
+  {
+    slug: 'fresh',
+    name: 'Fresh',
+    eyebrow: 'WEB DESIGN / BRANDING',
+    intro: 'Brand identity, can packaging and website design for Fresh Nutrition, a subscription drinks brand with weekly, monthly and yearly plans.',
+    image: '/projects/fresh/fresh-full.webp',
+    alt: 'Fresh Nutrition project: logo, can range, website design and subscription plans',
+  },
 ];
