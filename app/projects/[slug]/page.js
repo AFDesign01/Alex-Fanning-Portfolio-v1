@@ -39,7 +39,9 @@ export default function ProjectPage({ params }) {
       </section>
 
       <section className="projectSheet shell">
-        <img src={project.image} alt={project.alt} />
+        {project.images
+          ? project.images.map((img) => <img key={img.src} src={img.src} alt={img.alt} />)
+          : <img src={project.image} alt={project.alt} />}
       </section>
 
       <section className="projectFooterNav shell">

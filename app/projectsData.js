@@ -26,4 +26,16 @@ export const projects = [
     thumb: '/projects/fresh/fresh-thumb.png',
     alt: 'Fresh Nutrition project: logo, can range, website design and subscription plans',
   },
+  {
+    slug: 'ivg-pro',
+    name: 'IVG Pro',
+    eyebrow: 'PACKAGING / PRODUCT DESIGN',
+    intro: 'Product photography and packaging artwork for the IVG Pro 10K disposable vape range, across its full range of flavours.',
+    images: [
+      { src: '/projects/ivg-pro/ivgpro-hero.webp', alt: 'IVG Pro logo and device render' },
+      { src: '/projects/ivg-pro/ivgpro-range.webp', alt: 'IVG Pro 10K full flavour range packaging lineup' },
+      { src: '/projects/ivg-pro/ivgpro-detail.webp', alt: 'Close-up detail of IVG Pro packaging and devices' },
+    ],
+    thumb: '/projects/ivg-pro/ivgpro-thumb.png',
+  },
 ];
