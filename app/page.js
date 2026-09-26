@@ -223,7 +223,6 @@ export default function HomePage() {
       <footer className="footer shell">
         <div className="brand"><strong>ALEX FANNING</strong><span>GRAPHIC DESIGNER</span></div>
         <a href="mailto:alex.fanning0201@gmail.com">EMAIL: ALEX.FANNING0201@GMAIL.COM</a>
-        <span>TEL: +44 7368 460 380</span>
         <div className="socials">
           <a href="https://www.linkedin.com/in/alex-fanning-graphic-designer-at-ivg-6bb681234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>
           <a href="https://www.instagram.com/afdesign26/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Icon name="instagram" /></a>
