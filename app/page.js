@@ -234,7 +234,7 @@ export default function HomePage() {
         <a href="mailto:alex.fanning0201@gmail.com">EMAIL: ALEX.FANNING0201@GMAIL.COM</a>
         <span>TEL: +44 7368 460 380</span>
         <div className="socials">
-          <a href="#" aria-label="LinkedIn"><Icon name="linkedin" /></a>
+          <a href="https://www.linkedin.com/in/alex-fanning-graphic-designer-at-ivg-6bb681234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>
           <a href="#" aria-label="Instagram"><Icon name="instagram" /></a>
           <a href="#" aria-label="Dribbble"><Icon name="dribbble" /></a>
         </div>
