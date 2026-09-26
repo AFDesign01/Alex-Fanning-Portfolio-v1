@@ -55,15 +55,6 @@ function Icon({ name }) {
           <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
-    case 'dribbble':
-      return (
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <circle cx="12" cy="12" r="9.5" />
-          <path d="M4 9.3c4.8 1.6 10.8 1.7 15.6.3" />
-          <path d="M5.2 17.6c2.6-4.6 6-8.6 9.7-11.6" />
-          <path d="M9.6 3.1c4.2 4.8 6.6 10.7 6.9 17.2" />
-        </svg>
-      );
     default:
       return null;
   }
@@ -235,8 +226,7 @@ export default function HomePage() {
         <span>TEL: +44 7368 460 380</span>
         <div className="socials">
           <a href="https://www.linkedin.com/in/alex-fanning-graphic-designer-at-ivg-6bb681234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>
-          <a href="#" aria-label="Instagram"><Icon name="instagram" /></a>
-          <a href="#" aria-label="Dribbble"><Icon name="dribbble" /></a>
+          <a href="https://www.instagram.com/afdesign26/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Icon name="instagram" /></a>
         </div>
       </footer>
     </main>
