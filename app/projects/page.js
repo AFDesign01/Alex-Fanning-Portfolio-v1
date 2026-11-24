@@ -47,7 +47,7 @@ export default function AllProjectsPage() {
 
       <footer className="footer shell">
         <div className="brand"><strong>ALEX FANNING</strong><span>GRAPHIC DESIGNER</span></div>
-        <a href="mailto:alex.fanning0201@gmail.com">EMAIL: ALEX.FANNING0201@GMAIL.COM</a>
+        <a href="mailto:alex.fanning@outlook.com">EMAIL: ALEX.FANNING@OUTLOOK.COM</a>
       </footer>
     </main>
   );
