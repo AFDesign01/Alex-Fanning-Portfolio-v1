@@ -82,6 +82,7 @@ export const projects = [
       { src: '/projects/ivg-galaxy-dual/galaxy-hero.webp', alt: 'IVG Galaxy Dual logo on a deep-space background with the line “A device out of this world”' },
       { src: '/projects/ivg-galaxy-dual/galaxy-devices.webp', alt: 'The IVG Galaxy Dual devices in six colourways' },
       { src: '/projects/ivg-galaxy-dual/galaxy-boxes.webp', alt: 'IVG Galaxy Dual boxes: Tropical, Cherry, Blue and Yellow editions' },
+      { src: '/projects/ivg-galaxy-dual/galaxy-afd.webp', alt: 'AFD logo' },
     ],
     thumb: '/projects/ivg-galaxy-dual/galaxy-thumb.webp',
   },
