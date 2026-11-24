@@ -9,13 +9,20 @@ const projects = [
   { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand', href: '/projects/vital-bloom', thumb: '/projects/vital-bloom/vital-bloom-thumb.png' },
 ];
 
-const skills = [
-  { name: 'Adobe Illustrator', level: 90 },
-  { name: 'Adobe Photoshop', level: 85 },
-  { name: 'Adobe InDesign', level: 88 },
-  { name: 'Figma', level: 83 },
-  { name: 'Blender', level: 85 },
-  { name: 'Creativity', level: 100 },
+// Grouped skills, no percentages. Everything here is backed by the CV.
+const skillGroups = [
+  {
+    title: 'Design tools',
+    items: ['Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign', 'Figma'],
+  },
+  {
+    title: 'Print & production',
+    items: ['Packaging artwork, concept to production', 'Prepress and printability checks', 'Advising clients on the print process'],
+  },
+  {
+    title: 'Currently learning',
+    items: ['Blender (3D)', 'Adobe Dimension', 'Motion graphics'],
+  },
 ];
 
 function Reveal({ children, delay = 0 }) {
@@ -140,7 +147,7 @@ export default function HomePage() {
         <Reveal delay={0.08}>
           <div className="facts">
             <div><h3>EDUCATION</h3><p>Bachelor’s Degree<br/>Graphic Design</p></div>
-            <div><h3>EXPERIENCE</h3><p>Design projects across branding, packaging, web and digital</p></div>
+            <div><h3>EXPERIENCE</h3><p>Graphic Designer, I Vape Great (IVG)<br/>Origination Controller (prepress), BrandIMS</p></div>
             <div><h3>WHAT I CAN OFFER</h3><p>Brand identity<br/>Packaging design<br/>UI/UX design<br/>Web design<br/>Creative direction</p></div>
           </div>
         </Reveal>
@@ -158,22 +165,13 @@ export default function HomePage() {
         </Reveal>
 
         <div className="skillsGrid">
-          {skills.map((s, i) => (
-            <Reveal key={s.name} delay={i * 0.06}>
-              <div className="skillRow">
-                <div className="skillHead">
-                  <span className="skillName">{s.name}</span>
-                  <span className="skillPercent">{s.level}%</span>
-                </div>
-                <div className="skillBar">
-                  <motion.div
-                    className="skillFill"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${s.level}%` }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: 1, delay: i * 0.06, ease: 'easeOut' }}
-                  />
-                </div>
+          {skillGroups.map((g, i) => (
+            <Reveal key={g.title} delay={i * 0.06}>
+              <div className="skillGroup">
+                <h3>{g.title.toUpperCase()}</h3>
+                <ul>
+                  {g.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
               </div>
             </Reveal>
           ))}
