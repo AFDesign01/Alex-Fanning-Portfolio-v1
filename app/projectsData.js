@@ -30,7 +30,7 @@ export const projects = [
   {
     slug: 'venom-vape',
     name: 'Venom Vape',
-    type: null, // TODO(Alex): 'client' or 'self-initiated'?
+    type: 'client',
     eyebrow: 'PACKAGING / BRANDING',
     intro: 'Brand identity, typography, packaging, characters, web banner and point-of-sale posters for Venom — “Let the flavour sink in.”',
     image: '/projects/venom-vape/venom-full.webp',
@@ -50,7 +50,7 @@ export const projects = [
   {
     slug: 'fresh',
     name: 'Fresh',
-    type: null, // TODO(Alex): 'client' or 'self-initiated'?
+    type: 'self-initiated',
     eyebrow: 'WEB DESIGN / BRANDING',
     intro: 'Brand identity, can packaging and website design for Fresh Nutrition, a subscription drinks brand with weekly, monthly and yearly plans.',
     image: '/projects/fresh/fresh-full.webp',

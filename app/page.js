@@ -20,8 +20,8 @@ const skillGroups = [
     items: ['Packaging artwork, concept to production', 'Prepress and printability checks', 'Advising clients on the print process'],
   },
   {
-    title: 'Currently learning',
-    items: ['Blender (3D)', 'Adobe Dimension', 'Motion graphics'],
+    title: '3D, motion & video',
+    items: ['Blender', 'Adobe Dimension', 'Adobe Premiere Pro', 'Adobe Audition'],
   },
 ];
 
