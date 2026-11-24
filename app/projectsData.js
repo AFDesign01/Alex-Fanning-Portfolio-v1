@@ -1,7 +1,36 @@
+/*
+ * PROJECTS
+ * ========
+ * Every project page and the All Projects grid are built from this list.
+ * To add a project: put its images in /public/projects/<slug>/ and copy the
+ * TEMPLATE at the bottom of this file into the list. Only slug, name, eyebrow,
+ * intro, thumb and an image are required. Every other field is optional and
+ * is simply hidden on the page until you fill it in.
+ *
+ *   type        'client'         work for an employer or client
+ *               'self-initiated' your own brief / concept project
+ *               null             label hidden (use while undecided)
+ *   client      who it was for, e.g. 'I Vape Great (IVG)'
+ *   year        e.g. '2025'
+ *   role        what YOU did, e.g. 'Lead designer: packaging artwork and print production'
+ *   brief       the problem or ask, a short paragraph
+ *   approach    how you solved it, a short paragraph (or an array of paragraphs)
+ *   outcome     what happened: launched, stocked in X, sales, feedback
+ *   deliverables array of short strings, e.g. ['Logo', 'Packaging', 'POS']
+ *   images      array of { src, alt, caption? } shown one after another.
+ *               Prefer 3 to 6 separate shots over one big collage.
+ */
+export function typeLabel(type) {
+  if (type === 'client') return 'CLIENT WORK';
+  if (type === 'self-initiated') return 'SELF-INITIATED';
+  return null;
+}
+
 export const projects = [
   {
     slug: 'venom-vape',
     name: 'Venom Vape',
+    type: 'client',
     eyebrow: 'PACKAGING / BRANDING',
     intro: 'Brand identity, typography, packaging, characters, web banner and point-of-sale posters for Venom — “Let the flavour sink in.”',
     image: '/projects/venom-vape/venom-full.webp',
@@ -11,6 +40,7 @@ export const projects = [
   {
     slug: 'vital-bloom',
     name: 'Vital Bloom',
+    type: 'self-initiated',
     eyebrow: 'PACKAGING / BRANDING',
     intro: 'Brand identity, typography and packaging for Vital Bloom, a colourful range of daily supplements.',
     image: '/projects/vital-bloom/vital-bloom-full.webp',
@@ -20,6 +50,7 @@ export const projects = [
   {
     slug: 'fresh',
     name: 'Fresh',
+    type: 'self-initiated',
     eyebrow: 'WEB DESIGN / BRANDING',
     intro: 'Brand identity, can packaging and website design for Fresh Nutrition, a subscription drinks brand with weekly, monthly and yearly plans.',
     image: '/projects/fresh/fresh-full.webp',
@@ -29,6 +60,8 @@ export const projects = [
   {
     slug: 'ivg-pro',
     name: 'IVG Pro',
+    type: 'client',
+    client: 'I Vape Great (IVG)',
     eyebrow: 'PACKAGING / PRODUCT DESIGN',
     intro: 'Product photography and packaging artwork for the IVG Pro 10K disposable vape range, across its full range of flavours.',
     images: [
@@ -39,3 +72,26 @@ export const projects = [
     thumb: '/projects/ivg-pro/ivgpro-thumb.png',
   },
 ];
+
+/*
+ * TEMPLATE: copy into the list above and fill in.
+ *
+  {
+    slug: 'project-name',
+    name: 'Project Name',
+    type: 'client',
+    client: '',
+    year: '',
+    eyebrow: 'PACKAGING / BRANDING',
+    intro: 'One or two sentences on what this is.',
+    role: '',
+    brief: '',
+    approach: '',
+    outcome: '',
+    deliverables: [],
+    thumb: '/projects/project-name/thumb.png',
+    images: [
+      { src: '/projects/project-name/01.webp', alt: '', caption: '' },
+    ],
+  },
+ */

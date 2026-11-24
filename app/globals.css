@@ -67,12 +67,11 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
 /* skills */
 .skills{border-top:1px solid var(--line)}
 .skillsIntro{font-family:var(--font-body);font-size:16px;color:#b9b9b9;margin:0 0 48px}
-.skillsGrid{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;row-gap:36px}
-.skillHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
-.skillName{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:.02em;color:#f0f0f0}
-.skillPercent{font-family:var(--font-body);font-weight:700;font-size:14px;color:var(--red)}
-.skillBar{width:100%;height:6px;border-radius:3px;background:#161616;border:1px solid #232323;overflow:hidden}
-.skillFill{height:100%;border-radius:3px;background:linear-gradient(90deg,#b8291a,var(--red))}
+.skillsGrid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;row-gap:36px}
+.skillGroup{border-top:1px solid var(--line-soft);padding-top:20px}
+.skillGroup h3{font-family:var(--font-body);font-weight:700;font-size:11.5px;letter-spacing:.18em;margin:0 0 16px;color:var(--red)}
+.skillGroup ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.skillGroup li{font-family:var(--font-body);font-weight:500;font-size:15px;line-height:1.4;color:#f0f0f0}
 
 /* work */
 .sectionHead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
@@ -157,3 +156,24 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
 .allThumb:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 @media (max-width:900px){.allGrid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.allGrid{grid-template-columns:1fr}}
+
+/* project labels + case study */
+.projectLabel{display:inline-block;margin:0 0 18px;padding:6px 10px;border:1px solid var(--line-soft);font-family:var(--font-body);font-weight:700;font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.projectLabel.client{border-color:var(--red);color:var(--red)}
+.caseFacts{display:flex;flex-wrap:wrap;gap:12px 40px;margin:8px 0 0;padding:0}
+.caseFacts div{display:flex;flex-direction:column;gap:6px}
+.caseFacts dt{font-family:var(--font-body);font-weight:700;font-size:10.5px;letter-spacing:.18em;color:var(--muted2)}
+.caseFacts dd{margin:0;font-size:15px;color:#e8e8e8}
+.caseStudy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;padding:8px 0 64px;border-top:1px solid var(--line)}
+.caseStudy section{padding-top:28px}
+.caseStudy h2{font-family:var(--font-body);font-weight:700;font-size:11.5px;letter-spacing:.18em;margin:0 0 12px;color:var(--red)}
+.caseStudy p{margin:0 0 12px;color:#cfcfcf;font-size:16px;line-height:1.6}
+.caseStudy ul{margin:0;padding-left:18px;color:#cfcfcf;font-size:16px;line-height:1.6}
+.projectSheet figure{margin:0;width:min(900px,100%)}
+.projectSheet figure img{width:100%}
+.projectSheet figcaption{margin-top:10px;font-size:13px;color:var(--muted2)}
+.allCard{display:flex;flex-direction:column;gap:12px}
+.allMeta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.allMeta h3{margin:0;font-family:var(--font-body);font-weight:700;font-size:14px;letter-spacing:.04em}
+.allMeta span{font-family:var(--font-body);font-weight:700;font-size:9.5px;letter-spacing:.16em;color:var(--muted2)}
+.allMeta span.client{color:var(--red)}

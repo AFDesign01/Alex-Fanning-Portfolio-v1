@@ -1,4 +1,4 @@
-import { projects } from '../projectsData';
+import { projects, typeLabel } from '../projectsData';
 
 export const metadata = {
   title: 'All Projects — Alex Fanning',
@@ -26,11 +26,20 @@ export default function AllProjectsPage() {
 
       <section className="allProjects shell">
         <div className="allGrid">
-          {projects.map((p) => (
-            <a key={p.slug} className="allThumb" href={`/projects/${p.slug}`} aria-label={p.name}>
-              <img src={p.thumb} alt={`${p.name} project thumbnail`} />
-            </a>
-          ))}
+          {projects.map((p) => {
+            const label = typeLabel(p.type);
+            return (
+              <div key={p.slug} className="allCard">
+                <a className="allThumb" href={`/projects/${p.slug}`} aria-label={p.name}>
+                  <img src={p.thumb} alt={`${p.name} project thumbnail`} />
+                </a>
+                <div className="allMeta">
+                  <h3>{p.name.toUpperCase()}</h3>
+                  {label && <span className={p.type}>{label}</span>}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
