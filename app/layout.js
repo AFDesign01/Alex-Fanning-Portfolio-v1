@@ -1,4 +1,5 @@
 import { Anton, Bebas_Neue, Inter, Alex_Brush } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const anton = Anton({
@@ -37,7 +38,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${anton.variable} ${bebas.variable} ${inter.variable} ${alexBrush.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
