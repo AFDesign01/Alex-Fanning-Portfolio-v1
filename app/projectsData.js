@@ -71,6 +71,20 @@ export const projects = [
     ],
     thumb: '/projects/ivg-pro/ivgpro-thumb.png',
   },
+  {
+    slug: 'ivg-galaxy-dual',
+    name: 'IVG Galaxy Dual',
+    type: 'client',
+    client: 'I Vape Great (IVG)',
+    eyebrow: 'PACKAGING / PRODUCT DESIGN',
+    intro: 'Devices and packaging for IVG Galaxy Dual, a dual-flavour disposable vape range in four editions: Tropical, Cherry, Blue and Yellow.',
+    images: [
+      { src: '/projects/ivg-galaxy-dual/galaxy-hero.webp', alt: 'IVG Galaxy Dual logo on a deep-space background with the line “A device out of this world”' },
+      { src: '/projects/ivg-galaxy-dual/galaxy-devices.webp', alt: 'The IVG Galaxy Dual devices in six colourways' },
+      { src: '/projects/ivg-galaxy-dual/galaxy-boxes.webp', alt: 'IVG Galaxy Dual boxes: Tropical, Cherry, Blue and Yellow editions' },
+    ],
+    thumb: '/projects/ivg-galaxy-dual/galaxy-thumb.webp',
+  },
 ];
 
 /*
