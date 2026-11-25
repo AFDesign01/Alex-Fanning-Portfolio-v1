@@ -1,4 +1,4 @@
-import { Anton, Bebas_Neue, Inter, Alex_Brush } from 'next/font/google';
+import { Anton, Inter } from 'next/font/google';
 import './globals.css';
 
 const anton = Anton({
@@ -8,35 +8,21 @@ const anton = Anton({
   display: 'swap',
 });
 
-const bebas = Bebas_Neue({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-name',
-  display: 'swap',
-});
-
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const alexBrush = Alex_Brush({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-script',
-  display: 'swap',
-});
-
 export const metadata = {
-  title: 'Alex Fanning — Graphic Designer',
-  description: 'Portfolio of Alex Fanning, specialising in packaging design, UI/UX, web design and branding.'
+  title: 'Alex Fanning — Packaging & Graphic Designer',
+  description: 'Portfolio of Alex Fanning, a packaging and graphic designer taking FMCG packaging from first concept to print-ready artwork.',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${anton.variable} ${bebas.variable} ${inter.variable} ${alexBrush.variable}`}>
+    <html lang="en" className={`${anton.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

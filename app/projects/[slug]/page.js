@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { projects, typeLabel } from '../../projectsData';
+import { SiteHeader, SiteFooter } from '../../components';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -19,10 +20,13 @@ function Paragraphs({ text }) {
   return list.map((t) => <p key={t}>{t}</p>);
 }
 
+const isDieline = (img) => /dieline/i.test(img.src);
+
 export default function ProjectPage({ params }) {
-  const project = projects.find((p) => p.slug === params.slug);
-  if (!project) notFound();
-  const [first, ...rest] = project.name.toUpperCase().split(' ');
+  const index = projects.findIndex((p) => p.slug === params.slug);
+  if (index === -1) notFound();
+  const project = projects[index];
+  const next = projects[(index + 1) % projects.length];
   const label = typeLabel(project.type);
   const images = project.images || [{ src: project.image, alt: project.alt }];
 
@@ -39,32 +43,28 @@ export default function ProjectPage({ params }) {
   ].filter(([, v]) => v && (!Array.isArray(v) || v.length));
 
   const hasDeliverables = project.deliverables && project.deliverables.length > 0;
+  const [first, ...rest] = project.name.toUpperCase().split(' ');
 
   return (
-    <main className="site projectPage">
-      <header className="topbar shell">
-        <a className="brand" href="/">
-          <strong>ALEX FANNING</strong>
-          <span>GRAPHIC DESIGNER</span>
-        </a>
-        <nav>
-          <a href="/#work">← BACK TO WORK</a>
-          <span className="dot" />
-        </nav>
-      </header>
+    <main className="site" style={{ '--c': project.color, '--on': project.ink }}>
+      <SiteHeader back={{ href: '/#work', label: '← BACK TO WORK' }} />
 
-      <section className="projectIntro shell">
-        {label && <p className={`projectLabel ${project.type}`}>{label}</p>}
-        <p className="eyebrow">{project.eyebrow}</p>
-        <h1>{first} <span>{rest.join(' ')}</span></h1>
-        <p className="intro">{project.intro}</p>
-        {facts.length > 0 && (
-          <dl className="caseFacts">
-            {facts.map(([k, v]) => (
-              <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
-            ))}
-          </dl>
-        )}
+      <section className="caseBand">
+        <div className="shell">
+          <div className="caseTags">
+            {label && <span className="pill">{label}</span>}
+            <span className="pill ghost">{project.eyebrow}</span>
+          </div>
+          <h1>{first} <span>{rest.join(' ')}</span></h1>
+          <p className="caseIntro">{project.intro}</p>
+          {facts.length > 0 && (
+            <dl className="caseFacts">
+              {facts.map(([k, v]) => (
+                <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+              ))}
+            </dl>
+          )}
+        </div>
       </section>
 
       {(story.length > 0 || hasDeliverables) && (
@@ -89,7 +89,7 @@ export default function ProjectPage({ params }) {
           {[project.beforeAfter.before, project.beforeAfter.after].map((img) => (
             <figure key={img.src}>
               <figcaption>{img.caption.toUpperCase()}</figcaption>
-              <img src={img.src} alt={img.alt} />
+              <div className="marks"><img src={img.src} alt={img.alt} /></div>
             </figure>
           ))}
         </section>
@@ -99,27 +99,40 @@ export default function ProjectPage({ params }) {
         <section key={sec.title} className="caseSection shell">
           <h2>{sec.title}</h2>
           {sec.body && <Paragraphs text={sec.body} />}
-          {sec.points && <ul>{sec.points.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
+          {sec.points && (
+            <ol>
+              {sec.points.map((pt) => {
+                const dot = pt.indexOf('. ');
+                return dot > 0 && dot < 60
+                  ? <li key={pt}><strong>{pt.slice(0, dot + 1)}</strong> {pt.slice(dot + 2)}</li>
+                  : <li key={pt}>{pt}</li>;
+              })}
+            </ol>
+          )}
         </section>
       ))}
 
       <section className="projectSheet shell">
         {images.map((img) => (
-          <figure key={img.src}>
-            <img src={img.src} alt={img.alt} />
+          <figure key={img.src} className={isDieline(img) ? 'dieline' : ''}>
+            {isDieline(img) ? (
+              <div className="marks"><img src={img.src} alt={img.alt} /></div>
+            ) : (
+              <img src={img.src} alt={img.alt} />
+            )}
             {img.caption && <figcaption>{img.caption}</figcaption>}
           </figure>
         ))}
       </section>
 
-      <section className="projectFooterNav shell">
-        <a className="outlineBtn" href="/#work">← BACK TO WORK</a>
-      </section>
+      <a className="nextProject" href={`/projects/${next.slug}`} style={{ '--c': next.color, '--on': next.ink }}>
+        <div className="shell nextInner">
+          <span>NEXT ON THE SHELF</span>
+          <strong>{next.name.toUpperCase()} →</strong>
+        </div>
+      </a>
 
-      <footer className="footer shell">
-        <div className="brand"><strong>ALEX FANNING</strong><span>GRAPHIC DESIGNER</span></div>
-        <a href="mailto:alex.fanning@outlook.com">EMAIL: ALEX.FANNING@OUTLOOK.COM</a>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
