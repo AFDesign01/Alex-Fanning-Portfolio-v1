@@ -84,6 +84,25 @@ export default function ProjectPage({ params }) {
         </section>
       )}
 
+      {project.beforeAfter && (
+        <section className="beforeAfter shell">
+          {[project.beforeAfter.before, project.beforeAfter.after].map((img) => (
+            <figure key={img.src}>
+              <figcaption>{img.caption.toUpperCase()}</figcaption>
+              <img src={img.src} alt={img.alt} />
+            </figure>
+          ))}
+        </section>
+      )}
+
+      {project.sections && project.sections.map((sec) => (
+        <section key={sec.title} className="caseSection shell">
+          <h2>{sec.title}</h2>
+          {sec.body && <Paragraphs text={sec.body} />}
+          {sec.points && <ul>{sec.points.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
+        </section>
+      ))}
+
       <section className="projectSheet shell">
         {images.map((img) => (
           <figure key={img.src}>

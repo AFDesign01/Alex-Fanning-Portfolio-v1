@@ -86,6 +86,39 @@ export const projects = [
     ],
     thumb: '/projects/ivg-galaxy-dual/galaxy-thumb.webp',
   },
+  {
+    slug: 'ivg-go-plus',
+    name: 'IVG Go Plus',
+    type: 'client',
+    client: 'I Vape Great (IVG)',
+    eyebrow: 'PACKAGING / REDESIGN',
+    intro: 'A packaging redesign for the IVG Go Plus, a new 2ml device for Spain, across eight flavours.',
+    brief: 'Design packaging for a new 2ml device for Spain, redesigning the existing Go Plus pack.',
+    beforeAfter: {
+      before: { src: '/projects/ivg-go-plus/goplus-before-front.webp', alt: 'Original IVG Go Plus Cherry pack, front panel', caption: 'Before' },
+      after: { src: '/projects/ivg-go-plus/goplus-after-front.webp', alt: 'Redesigned IVG Go Plus Cherry pack for Spain, front panel', caption: 'After' },
+    },
+    sections: [
+      {
+        title: 'WHY THE REDESIGN WORKS',
+        points: [
+          'The flavour reads first. On the original pack the flavour sits in small type in a band near the bottom of the front. The redesign sets it in large, bold capitals directly above the warning panel, so it reads at a glance and from a distance on shelf.',
+          'Stronger, flavour-led colour. The original Cherry pack used a muted salmon and brick-red gradient. The redesign uses a solid, saturated flavour colour, and every flavour in the range gets its own, such as yellow for Banana, red for Cherry and green for Mint, so the eight packs work as a colour-coded range and shoppers can find their flavour quickly.',
+          'A clearer front. The original runs one continuous gradient behind the device, so product and background blend together. The redesign splits the front into clear zones: the logo, the device on a light patterned panel, a solid colour band and the flavour name, so each element has its own space.',
+          'A brand pattern with personality. The curved smile shapes from the go logo become a repeating pattern, tinted to each flavour, and carry onto the side panels. It gives the range a friendly, recognisable look that the plain gradient of the original lacked.',
+          'One system for the whole range. Every box shares the same layout and only the colour and flavour name change, so new flavours can be added quickly and the range always looks consistent.',
+        ],
+      },
+    ],
+    images: [
+      { src: '/projects/ivg-go-plus/goplus-hero.webp', alt: 'IVG Go Plus logo on a patterned mint background' },
+      { src: '/projects/ivg-go-plus/goplus-boxes.webp', alt: 'Redesigned IVG Go Plus boxes: Banana, Blueberry Raspberry Lemon, Cherry, Mint, Lemon Lime, Blackcurrant Cherry, Strawberry Lemon and Tobacco' },
+      { src: '/projects/ivg-go-plus/goplus-before-dieline.webp', alt: 'Dieline of the original IVG Go Plus Cherry pack', caption: 'Before: the original Cherry pack as a flat dieline.' },
+      { src: '/projects/ivg-go-plus/goplus-after-dieline.webp', alt: 'Dieline of the redesigned IVG Go Plus Cherry pack', caption: 'After: the redesigned Cherry pack for Spain as a flat dieline.' },
+      { src: '/projects/ivg-go-plus/goplus-afd.webp', alt: 'AFD logo' },
+    ],
+    thumb: '/projects/ivg-go-plus/goplus-thumb.webp',
+  },
 ];
 
 /*
