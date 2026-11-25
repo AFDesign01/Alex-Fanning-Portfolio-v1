@@ -177,3 +177,14 @@ blockquote{margin:0;border-left:1px solid var(--line);padding-left:40px;font-fam
 .allMeta h3{margin:0;font-family:var(--font-body);font-weight:700;font-size:14px;letter-spacing:.04em}
 .allMeta span{font-family:var(--font-body);font-weight:700;font-size:9.5px;letter-spacing:.16em;color:var(--muted2)}
 .allMeta span.client{color:var(--red)}
+
+/* before / after + extra case sections */
+.beforeAfter{display:flex;justify-content:center;align-items:flex-end;gap:48px;padding:8px 0 56px;border-top:1px solid var(--line)}
+.beforeAfter figure{margin:0;padding-top:28px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.beforeAfter figcaption{font-family:var(--font-body);font-weight:700;font-size:11.5px;letter-spacing:.18em;color:var(--red)}
+.beforeAfter img{height:min(520px,70vw);width:auto;display:block;border:1px solid #171717}
+.caseSection{padding:8px 0 56px;border-top:1px solid var(--line)}
+.caseSection h2{font-family:var(--font-body);font-weight:700;font-size:11.5px;letter-spacing:.18em;margin:28px 0 16px;color:var(--red)}
+.caseSection p,.caseSection li{max-width:760px;color:#cfcfcf;font-size:16px;line-height:1.6}
+.caseSection ul{margin:0;padding-left:18px;display:grid;gap:12px}
+@media (max-width:620px){.beforeAfter{gap:20px}.beforeAfter img{height:min(380px,90vw)}}
