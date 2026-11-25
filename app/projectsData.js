@@ -86,6 +86,21 @@ export const projects = [
     ],
     thumb: '/projects/ivg-galaxy-dual/galaxy-thumb.webp',
   },
+  {
+    slug: 'ivg-go-plus',
+    name: 'IVG Go Plus',
+    type: 'client',
+    client: 'I Vape Great (IVG)',
+    eyebrow: 'PACKAGING',
+    intro: 'Packaging for the IVG Go Plus, a new 2ml device for the Spanish market, across eight flavours.',
+    brief: 'Design packaging for a new 2ml device for Spain.',
+    images: [
+      { src: '/projects/ivg-go-plus/goplus-hero.webp', alt: 'IVG Go Plus logo on a patterned mint background' },
+      { src: '/projects/ivg-go-plus/goplus-boxes.webp', alt: 'IVG Go Plus boxes: Banana, Blueberry Raspberry Lemon, Cherry, Mint, Lemon Lime, Blackcurrant Cherry, Strawberry Lemon and Tobacco' },
+      { src: '/projects/ivg-go-plus/goplus-afd.webp', alt: 'AFD logo' },
+    ],
+    thumb: '/projects/ivg-go-plus/goplus-thumb.webp',
+  },
 ];
 
 /*
