@@ -17,6 +17,9 @@
  *   approach    how you solved it, a short paragraph (or an array of paragraphs)
  *   outcome     what happened: launched, stocked in X, sales, feedback
  *   deliverables array of short strings, e.g. ['Logo', 'Packaging', 'POS']
+ *   color/ink   the project's colour block and the text colour that sits on it
+ *   card        product shot for the shelf card (1200x800)
+ *   order       position on the shelf (1 = first)
  *   images      array of { src, alt, caption? } shown one after another.
  *               Prefer 3 to 6 separate shots over one big collage.
  */
@@ -29,6 +32,10 @@ export function typeLabel(type) {
 export const projects = [
   {
     slug: 'venom-vape',
+    order: 4,
+    color: '#e0262b',
+    ink: '#ffffff',
+    card: '/projects/venom-vape/venom-card.webp',
     name: 'Venom Vape',
     type: 'client',
     eyebrow: 'PACKAGING / BRANDING',
@@ -39,6 +46,10 @@ export const projects = [
   },
   {
     slug: 'vital-bloom',
+    order: 6,
+    color: '#4c63b6',
+    ink: '#ffffff',
+    card: '/projects/vital-bloom/vital-bloom-card.webp',
     name: 'Vital Bloom',
     type: 'self-initiated',
     eyebrow: 'PACKAGING / BRANDING',
@@ -49,6 +60,10 @@ export const projects = [
   },
   {
     slug: 'fresh',
+    order: 5,
+    color: '#00aeee',
+    ink: '#0b1a2b',
+    card: '/projects/fresh/fresh-card.webp',
     name: 'Fresh',
     type: 'self-initiated',
     eyebrow: 'WEB DESIGN / BRANDING',
@@ -59,6 +74,10 @@ export const projects = [
   },
   {
     slug: 'ivg-pro',
+    order: 3,
+    color: '#f2b705',
+    ink: '#1a1405',
+    card: '/projects/ivg-pro/ivgpro-card.webp',
     name: 'IVG Pro',
     type: 'client',
     client: 'I Vape Great (IVG)',
@@ -73,6 +92,10 @@ export const projects = [
   },
   {
     slug: 'ivg-galaxy-dual',
+    order: 2,
+    color: '#f2711c',
+    ink: '#1a0d03',
+    card: '/projects/ivg-galaxy-dual/galaxy-card.webp',
     name: 'IVG Galaxy Dual',
     type: 'client',
     client: 'I Vape Great (IVG)',
@@ -88,6 +111,10 @@ export const projects = [
   },
   {
     slug: 'ivg-go-plus',
+    order: 1,
+    color: '#1fa65a',
+    ink: '#ffffff',
+    card: '/projects/ivg-go-plus/goplus-card.webp',
     name: 'IVG Go Plus',
     type: 'client',
     client: 'I Vape Great (IVG)',
@@ -120,6 +147,8 @@ export const projects = [
     thumb: '/projects/ivg-go-plus/goplus-thumb.webp',
   },
 ];
+
+projects.sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 
 /*
  * TEMPLATE: copy into the list above and fill in.

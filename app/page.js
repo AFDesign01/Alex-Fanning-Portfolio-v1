@@ -1,231 +1,129 @@
-'use client';
+import { projects } from './projectsData';
+import { SiteHeader, SiteFooter, Shelves, CV_URL } from './components';
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+export const metadata = {
+  title: 'Alex Fanning — Packaging & Graphic Designer',
+  description: 'Portfolio of Alex Fanning, a packaging and graphic designer taking FMCG packaging from first concept to print-ready artwork.',
+};
 
-const projects = [
-  { title: 'Packaging', kicker: 'Product design for a new generation.', cls: 'pack tall', href: '/projects/venom-vape', thumb: '/projects/venom-vape/venom-thumb.png' },
-  { title: 'Web', kicker: 'Digital experiences that connect.', cls: 'web', href: '/projects/fresh', thumb: '/projects/fresh/fresh-thumb.png' },
-  { title: 'Branding', kicker: 'Identities with purpose.', cls: 'brand', href: '/projects/vital-bloom', thumb: '/projects/vital-bloom/vital-bloom-thumb.png' },
+const heroPacks = ['ivg-go-plus', 'ivg-galaxy-dual', 'fresh']
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .map((p) => ({ ...p, tall: `/projects/${p.slug}/${{ 'ivg-go-plus': 'goplus', 'ivg-galaxy-dual': 'galaxy', fresh: 'fresh' }[p.slug]}-tall.webp` }))
+  .filter(Boolean);
+
+const steps = [
+  { n: '01', title: 'Concept', text: 'Ideas and direction for the brand and the range, led from the first brief.' },
+  { n: '02', title: 'Design', text: 'Packaging, digital assets and range systems built to stand out on shelf.' },
+  { n: '03', title: 'Artwork', text: 'Print-ready artwork across every flavour and market, warnings and dielines included.' },
+  { n: '04', title: 'Prepress', text: 'Printability checks and print-process advice, from my time as an Origination Controller.' },
 ];
 
-// Grouped skills, no percentages. Everything here is backed by the CV.
 const skillGroups = [
-  {
-    title: 'Design tools',
-    items: ['Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign', 'Figma'],
-  },
-  {
-    title: 'Print & production',
-    items: ['Packaging artwork, concept to production', 'Prepress and printability checks', 'Advising clients on the print process'],
-  },
-  {
-    title: '3D, motion & video',
-    items: ['Blender', 'Adobe Dimension', 'Adobe Premiere Pro', 'Adobe Audition'],
-  },
+  { title: 'Design tools', items: ['Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign', 'Figma'] },
+  { title: 'Print & production', items: ['Packaging artwork, concept to production', 'Prepress and printability checks', 'Advising clients on the print process'] },
+  { title: '3D, motion & video', items: ['Blender', 'Adobe Dimension', 'Adobe Premiere Pro', 'Adobe Audition'] },
 ];
-
-function Reveal({ children, delay = 0 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function Art({ href, children, ...props }) {
-  return href ? <a href={href} {...props}>{children}</a> : <div {...props}>{children}</div>;
-}
-
-function Icon({ name }) {
-  switch (name) {
-    case 'linkedin':
-      return (
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <rect x="2.5" y="2.5" width="19" height="19" rx="2.5" />
-          <line x1="7.2" y1="10" x2="7.2" y2="17" />
-          <circle cx="7.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
-          <path d="M11.5 17v-4.2c0-1.6 1-2.6 2.4-2.6 1.4 0 2.3 1 2.3 2.6V17" />
-          <line x1="11.5" y1="10" x2="11.5" y2="17" />
-        </svg>
-      );
-    case 'instagram':
-      return (
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-          <circle cx="12" cy="12" r="4.6" />
-          <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
 
 export default function HomePage() {
-  const [mouse, setMouse] = useState({ x: 50, y: 20 });
-
-  useEffect(() => {
-    const move = (e) => {
-      setMouse({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
-    window.addEventListener('mousemove', move);
-    return () => window.removeEventListener('mousemove', move);
-  }, []);
-
-
   return (
-    <main
-      className="site"
-      style={{ '--mx': `${mouse.x}%`, '--my': `${mouse.y}%` }}
-    >
-      <div className="cursorGlow" aria-hidden="true" />
-
-      <header className="topbar shell">
-        <a className="brand" href="#top">
-          <strong>ALEX FANNING</strong>
-          <span>GRAPHIC DESIGNER</span>
-        </a>
-        <nav>
-          <a href="#about">ABOUT</a>
-          <a href="#skills">SKILLS</a>
-          <a href="/projects">PROJECTS</a>
-          <a href="#contact">CONTACT</a>
-          <span className="dot" />
-        </nav>
-      </header>
+    <main className="site">
+      <SiteHeader />
 
       <section className="hero shell" id="top">
-        <Reveal>
-          <p className="eyebrow">IDEAS / DESIGN / IMPACT</p>
+        <div className="heroCopy">
+          <p className="eyebrow">PACKAGING · BRANDING · PRINT</p>
           <h1>
-            PACKAGING<br />
-            <span>WEB</span><br />
-            BRANDING
+            DESIGNS<br />
+            THAT SELL<br />
+            <span>OFF THE SHELF.</span>
           </h1>
-          <p className="intro">Years of experience working with FMCG brands to deliver designs that sell.</p>
-          <a href="#work" className="outlineBtn">VIEW MY WORK <span>→</span></a>
-        </Reveal>
-
-        <motion.div
-          className="portraitCard"
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-        >
-          <div className="portraitPlaceholder">
-            <img className="portraitImg" src="/images/alex-portrait.png" alt="Alex Fanning" />
-            <div className="signature">Alex Fanning</div>
+          <p className="intro">Years of experience working with FMCG brands to deliver designs that sell, from the first concept to print-ready artwork. Currently Graphic Designer at I Vape Great.</p>
+          <div className="heroBtns">
+            <a href="#work" className="btn solid">SEE THE WORK <span>→</span></a>
+            <a href={CV_URL} download className="btn">DOWNLOAD CV <span>↓</span></a>
           </div>
-          <div className="portraitMeta">GRAPHIC DESIGNER<br />BASED IN THE UK</div>
-        </motion.div>
-      </section>
-
-      <Reveal>
-        <div className="nameBanner">
-          <h2>ALEX FANNING</h2>
         </div>
-      </Reveal>
 
-      <section className="about shell section" id="about">
-        <Reveal>
-          <div className="sectionNum">01<i /></div>
-          <h2>ABOUT ME</h2>
-          <p>I’m Alex Fanning, a graphic designer specialising in packaging design, UI/UX design, web design and branding. I help brands bring ideas to life through bold, strategic and engaging design.</p>
-          <p>With a strong interest in how design shapes perception, I create work that doesn’t just look good, but makes an impact.</p>
-          <a href="#contact" className="outlineBtn small">MORE ABOUT ME <span>→</span></a>
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <div className="facts">
-            <div><h3>EDUCATION</h3><p>Bachelor’s Degree<br/>Graphic Design</p></div>
-            <div><h3>EXPERIENCE</h3><p>Graphic Designer, I Vape Great (IVG)<br/>Origination Controller (prepress), BrandIMS</p></div>
-            <div><h3>WHAT I CAN OFFER</h3><p>Brand identity<br/>Packaging design<br/>UI/UX design<br/>Web design<br/>Creative direction</p></div>
+        <div className="heroShelf" aria-hidden="true">
+          <div className="heroPacks">
+            {heroPacks.map((p, i) => (
+              <a key={p.slug} href={`/projects/${p.slug}`} className={`heroPack hp${i}`} style={{ '--c': p.color }} tabIndex={-1}>
+                <img src={p.tall} alt="" />
+              </a>
+            ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={0.16}>
-          <blockquote>GOOD<br/>DESIGN<br/>BUILDS<br/><span>STRONGER<br/>BRANDS.</span></blockquote>
-        </Reveal>
-      </section>
-
-      <section className="skills shell section" id="skills">
-        <Reveal>
-          <div className="sectionNum">02<i /></div>
-          <h2>SKILLS</h2>
-          <p className="skillsIntro">Tools and abilities I bring to every project.</p>
-        </Reveal>
-
-        <div className="skillsGrid">
-          {skillGroups.map((g, i) => (
-            <Reveal key={g.title} delay={i * 0.06}>
-              <div className="skillGroup">
-                <h3>{g.title.toUpperCase()}</h3>
-                <ul>
-                  {g.items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+          <div className="shelfBoard" />
+          <div className="newTag"><span>NEW ON THE SHELF</span><strong>IVG GO PLUS</strong></div>
         </div>
       </section>
 
       <section className="work shell section" id="work">
         <div className="sectionHead">
           <div>
-            <div className="sectionNum">03<i /></div>
-            <h2>SELECTED WORK</h2>
+            <p className="kicker">01 / SELECTED WORK</p>
+            <h2>ON THE <span>SHELF</span></h2>
           </div>
-          <a href="/projects">SEE THE REST <span>→</span></a>
+          <a className="textLink" href="/projects">ALL PROJECTS →</a>
         </div>
+        <Shelves projects={projects} />
+      </section>
 
-        <div className="projectGrid">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              className={`projectCard ${p.cls.includes('tall') ? 'span2' : ''}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <Art className={`projectArt ${p.cls}`} href={p.href}>
-                <motion.div className="projectArtInner" whileHover={{ scale: 1.05 }} transition={{ duration: 0.4 }}>
-                  {p.thumb && <img className="projectThumb" src={p.thumb} alt={`${p.title} project thumbnail`} />}
-                </motion.div>
-              </Art>
-              <div className="projectMeta">
-                <div><h3>{p.title.toUpperCase()}</h3><p>{p.kicker}</p></div>
-                <a href={p.href || "#contact"} className="viewProject">VIEW PROJECT <span>→</span></a>
+      <section className="process" id="process">
+        <div className="shell">
+          <p className="kicker">02 / HOW I WORK</p>
+          <h2>FROM CONCEPT <span>TO PRINT</span></h2>
+          <ol className="steps">
+            {steps.map((s) => (
+              <li key={s.n} className="marks">
+                <span className="stepNum">{s.n}</span>
+                <h3>{s.title.toUpperCase()}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="about shell section" id="about">
+        <div className="portrait marks">
+          <img src="/images/alex-portrait.png" alt="Alex Fanning" />
+        </div>
+        <div className="aboutCopy">
+          <p className="kicker">03 / ABOUT</p>
+          <h2>HI, I’M <span>ALEX.</span></h2>
+          <p>I’m a graphic designer based in Preston, specialising in packaging design, branding, web and UI. I help brands bring ideas to life through bold, strategic design, and I make sure it prints exactly as intended.</p>
+          <div className="facts">
+            <div>
+              <h3>EXPERIENCE</h3>
+              <p>Graphic Designer, I Vape Great (IVG)<br />Origination Controller (prepress), BrandIMS</p>
+            </div>
+            <div>
+              <h3>EDUCATION</h3>
+              <p>BA Graphic Design, 2:1<br />University of Central Lancashire</p>
+            </div>
+          </div>
+          <div className="skillsGrid">
+            {skillGroups.map((g) => (
+              <div className="skillGroup" key={g.title}>
+                <h3>{g.title.toUpperCase()}</h3>
+                <ul>{g.items.map((item) => <li key={item}>{item}</li>)}</ul>
               </div>
-            </motion.article>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="contact cv shell section" id="contact">
-        <Reveal>
-          <h2>WANT MY <span>CV?</span></h2>
-          <a className="outlineBtn" href="/cv/Alex_Fanning_Graphic_Designer_CV.pdf" download>DOWNLOAD MY CV <span>→</span></a>
-        </Reveal>
+      <section className="cvBand" id="contact">
+        <div className="shell cvInner">
+          <h2>LET’S MAKE SOMETHING<br />THAT <span>SELLS.</span></h2>
+          <div className="heroBtns">
+            <a className="btn solid inv" href={CV_URL} download>DOWNLOAD MY CV <span>↓</span></a>
+            <a className="btn inv" href="mailto:alex.fanning@outlook.com">EMAIL ME <span>→</span></a>
+          </div>
+        </div>
       </section>
 
-      <footer className="footer shell">
-        <div className="brand"><strong>ALEX FANNING</strong><span>GRAPHIC DESIGNER</span></div>
-        <a href="mailto:alex.fanning@outlook.com">EMAIL: ALEX.FANNING@OUTLOOK.COM</a>
-        <div className="socials">
-          <a href="https://www.linkedin.com/in/alex-fanning-graphic-designer-at-ivg-6bb681234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>
-          <a href="https://www.instagram.com/afdesign26/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Icon name="instagram" /></a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
