@@ -116,7 +116,9 @@ nav a:hover{color:var(--red)}
 
 /* about */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
-.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;background:#111}
+.aboutHead{position:sticky;top:32px}
+.aboutTag{display:inline-block;margin:28px 0 0;padding:16px 20px;font-size:12px;font-weight:700;letter-spacing:.14em;line-height:1.7;color:var(--ink)}
+.aboutCopy>.aboutLead{font-size:clamp(20px,2vw,24px);line-height:1.5;color:var(--ink);margin-top:6px}
 .aboutCopy>p{font-size:17px;line-height:1.65;color:#3b3731;max-width:620px;margin:22px 0 0}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:36px 0;padding:26px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
 .facts h3,.skillGroup h3{font-weight:800;font-size:11px;letter-spacing:.2em;margin:0 0 10px;color:var(--red)}
@@ -193,8 +195,8 @@ nav a:hover{color:var(--red)}
   .cardBoard{display:block;margin:0 -10px}
   .shelfTag{margin-top:7px}
   .steps{grid-template-columns:repeat(2,1fr)}
-  .about{grid-template-columns:1fr}
-  .portrait{max-width:420px}
+  .about{grid-template-columns:1fr;gap:36px}
+  .aboutHead{position:static}
 }
 @media (max-width:620px){
   .shell{width:calc(100% - 32px)}

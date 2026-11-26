@@ -85,13 +85,13 @@ export default function HomePage() {
       </section>
 
       <section className="about shell section" id="about">
-        <div className="portrait marks">
-          <img src="/images/alex-portrait.png" alt="Alex Fanning" />
-        </div>
-        <div className="aboutCopy">
+        <div className="aboutHead">
           <p className="kicker">03 / ABOUT</p>
           <h2>HI, I’M <span>ALEX.</span></h2>
-          <p>I’m a graphic designer based in Preston, specialising in packaging design, branding, web and UI. I help brands bring ideas to life through bold, strategic design, and I make sure it prints exactly as intended.</p>
+          <p className="aboutTag marks">PRESTON, UK<br />PACKAGING · BRANDING · PRINT</p>
+        </div>
+        <div className="aboutCopy">
+          <p className="aboutLead">I’m a graphic designer based in Preston, specialising in packaging design, branding, web and UI. I help brands bring ideas to life through bold, strategic design, and I make sure it prints exactly as intended.</p>
           <div className="facts">
             <div>
               <h3>EXPERIENCE</h3>
