@@ -106,8 +106,9 @@ nav a:hover{color:var(--red)}
 .soonFace{aspect-ratio:3/2;display:grid;place-items:center;background-color:#221e19;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 14px,transparent 14px 28px)}
 .soonFace span{font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);line-height:.95;text-align:center;color:#f3efe7;letter-spacing:.02em}
 .pack.soon:nth-child(n+2) .soonFace span{color:#6b6257}
-.pack.soon:hover .packFace{transform:none;box-shadow:0 10px 20px rgba(20,18,16,.12)}
-.pack.soon:hover .shelfTag{transform:none}
+.pack.soon:not(.live):hover .packFace{transform:none;box-shadow:0 10px 20px rgba(20,18,16,.12)}
+.pack.soon:not(.live):hover .shelfTag{transform:none}
+.soonFace em{font-style:normal;color:var(--red)}
 .shelfRow>.shelfBoard{position:absolute;left:0;right:0;bottom:91px;z-index:0}
 .shelfRow .shelfItems{position:relative;z-index:1}
 .cardBoard{display:none}
@@ -154,6 +155,34 @@ nav a:hover{color:var(--red)}
 /* all projects page */
 .pageIntro{padding:40px 0 30px}
 .pageIntro h1{font-size:clamp(64px,10vw,150px)}
+
+/* game design placeholder page */
+.gamePage .caseBand h1 span{color:var(--red);opacity:1}
+.gameHero{padding-bottom:64px}
+.gameSection{padding:0 0 72px}
+.gameSectionHead{display:flex;align-items:baseline;gap:18px;border-top:2px solid var(--ink);padding-top:18px;margin-bottom:14px}
+.gameSectionHead h2{font-size:clamp(34px,4vw,52px)}
+.placeholderText{max-width:760px;font-size:17px;line-height:1.6;color:var(--muted);font-style:italic;margin:0 0 28px}
+.slotStack{display:flex;flex-direction:column;gap:28px}
+.slotGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.slot{margin:0}
+.slotBox{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px;border:2px dashed #b9b0a1;background:var(--paper2);background-image:repeating-linear-gradient(-45deg,rgba(20,18,16,.035) 0 14px,transparent 14px 28px)}
+.slotBox strong{font-family:var(--font-display);font-weight:400;font-size:clamp(22px,2.4vw,32px);line-height:1;text-transform:uppercase}
+.slotSpec{font-size:12.5px;font-weight:600;color:var(--muted)}
+.slotKind{position:absolute;top:12px;left:12px;font-size:10px;font-weight:800;letter-spacing:.18em;background:var(--ink);color:var(--paper);padding:4px 8px}
+.slotBox.isVideo{background-color:#221e19;border-color:#5a5045;color:var(--paper)}
+.slotBox.isVideo .slotKind{background:var(--red);color:#fff}
+.slotBox.isVideo .slotSpec{color:#a59d90}
+.slotPlay{width:64px;height:64px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-size:22px;padding-left:4px}
+.slot figcaption{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.gatherList{background:var(--red);color:#fff;padding:80px 0;margin-top:8px}
+.gatherList .kicker{color:rgba(255,255,255,.8)}
+.gatherList h2{font-size:clamp(48px,6vw,84px)}
+.gatherList h2 span{color:var(--ink)}
+.gatherCols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px}
+.gatherCols h3{font-size:12px;font-weight:800;letter-spacing:.2em;margin:0 0 14px;border-bottom:2px solid #fff;padding-bottom:10px}
+.gatherCols ul{margin:0;padding-left:18px;font-size:15px;line-height:1.7}
+@media (max-width:760px){.gatherCols{grid-template-columns:1fr}}
 
 /* case study pages */
 .caseBand{background:var(--c);color:var(--on);padding:56px 0 60px;margin-bottom:56px}

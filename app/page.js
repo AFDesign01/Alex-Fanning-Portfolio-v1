@@ -78,14 +78,24 @@ export default function HomePage() {
         </div>
         <div className="shelfRow">
           <div className="shelfItems">
-            {[1, 2, 3].map((n) => (
-              <div className="pack soon" key={n} aria-hidden={n > 1 ? 'true' : undefined}>
+            <a className="pack soon live" href="/games/empires-the-uprising">
+              <div className="packFace">
+                <div className="soonFace"><span>EMPIRES<br /><em>THE UPRISING</em></span></div>
+              </div>
+              <div className="shelfTag">
+                <span className="tagEyebrow">GAME DESIGN</span>
+                <strong>EMPIRES THE UPRISING</strong>
+                <span className="tagType">COMING SOON</span>
+              </div>
+            </a>
+            {[2, 3].map((n) => (
+              <div className="pack soon" key={n} aria-hidden="true">
                 <div className="packFace">
                   <div className="soonFace"><span>COMING<br />SOON</span></div>
                 </div>
                 <div className="shelfTag">
                   <span className="tagEyebrow">GAME DESIGN</span>
-                  <strong>{n === 1 ? 'IN DEVELOPMENT' : 'RESTOCKING SOON'}</strong>
+                  <strong>RESTOCKING SOON</strong>
                 </div>
               </div>
             ))}
