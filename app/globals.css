@@ -108,7 +108,7 @@ nav a:hover{color:var(--red)}
 .pack.soon:nth-child(n+2) .soonFace span{color:#6b6257}
 .pack.soon:not(.live):hover .packFace{transform:none;box-shadow:0 10px 20px rgba(20,18,16,.12)}
 .pack.soon:not(.live):hover .shelfTag{transform:none}
-.soonFace em{font-style:normal;color:var(--red)}
+.packFace img.soonLogo{width:76%;height:auto;aspect-ratio:auto;object-fit:contain}
 .shelfRow>.shelfBoard{position:absolute;left:0;right:0;bottom:91px;z-index:0}
 .shelfRow .shelfItems{position:relative;z-index:1}
 .cardBoard{display:none}
@@ -157,7 +157,10 @@ nav a:hover{color:var(--red)}
 .pageIntro h1{font-size:clamp(64px,10vw,150px)}
 
 /* game design placeholder page */
-.gamePage .caseBand h1 span{color:var(--red);opacity:1}
+.gameLogo{margin:18px 0 0}
+.gameLogo img{display:block;width:min(720px,100%);height:auto}
+.slotDone{display:grid;place-items:center;padding:32px;background:#fff;border:2px solid var(--ink)}
+.slotDone img{width:80%;height:auto}
 .gameHero{padding-bottom:64px}
 .gameSection{padding:0 0 72px}
 .gameSectionHead{display:flex;align-items:baseline;gap:18px;border-top:2px solid var(--ink);padding-top:18px;margin-bottom:14px}

@@ -80,7 +80,7 @@ export default function HomePage() {
           <div className="shelfItems">
             <a className="pack soon live" href="/games/empires-the-uprising">
               <div className="packFace">
-                <div className="soonFace"><span>EMPIRES<br /><em>THE UPRISING</em></span></div>
+                <div className="soonFace"><img className="soonLogo" src="/games/empires/logo-white.webp" alt="Empires The Uprising logo" loading="lazy" /></div>
               </div>
               <div className="shelfTag">
                 <span className="tagEyebrow">GAME DESIGN</span>

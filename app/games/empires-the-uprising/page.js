@@ -9,7 +9,15 @@ export const metadata = {
 // PLACEHOLDER PAGE. Every [bracketed] line and every dashed box is a stand-in.
 // Swap each Slot for a real <img> or <video> once the assets are gathered.
 
-function Slot({ kind = 'IMAGE', title, spec, note, ratio = '16/9' }) {
+function Slot({ kind = 'IMAGE', title, spec, note, ratio = '16/9', src }) {
+  if (src) {
+    return (
+      <figure className="slot">
+        <div className="slotDone" style={{ aspectRatio: ratio }}><img src={src} alt={title} /></div>
+        {note && <figcaption>{note}</figcaption>}
+      </figure>
+    );
+  }
   return (
     <figure className="slot">
       <div className={`slotBox ${kind === 'VIDEO' ? 'isVideo' : ''}`} style={{ aspectRatio: ratio }}>
@@ -77,7 +85,7 @@ const sections = [
     text: '[This is where your graphic design background shines. Show the logo, the HUD, menus and icons, and explain the choices: readability, hierarchy, colour.]',
     grid: true,
     slots: [
-      { title: 'Game logo', spec: 'Transparent PNG or SVG', ratio: '16/9' },
+      { src: '/games/empires/logo-black.webp', title: 'Game logo', note: 'Logo on light. The white version is used in the header above.' },
       { title: 'In-game HUD screenshot', spec: '1920 × 1080', ratio: '16/9' },
       { title: 'Menu screens / icon set', spec: '1920 × 1080', ratio: '16/9' },
     ],
@@ -100,7 +108,7 @@ const checklist = {
     'Gameplay loop diagram',
     '2–3 concept art pieces (environment, characters, moodboard)',
     'Level layout sketch + finished level screenshot',
-    'Game logo (transparent PNG or SVG)',
+    'Game logo ✓ (received)',
     'HUD screenshot + menu screens or icon set',
     'Early sketches or paper prototype photos',
   ],
@@ -130,7 +138,7 @@ export default function EmpiresPage() {
             <span className="pill">GAME DESIGN</span>
             <span className="pill ghost">COMING SOON</span>
           </div>
-          <h1>EMPIRES <span>THE UPRISING</span></h1>
+          <h1 className="gameLogo"><img src="/games/empires/logo-white.webp" alt="Empires The Uprising" width="1400" height="474" /></h1>
           <p className="caseIntro">[Short intro: one or two sentences that sum up the game and your role in it.]</p>
           <dl className="caseFacts">
             {facts.map(([k, v]) => (
