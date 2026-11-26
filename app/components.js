@@ -16,6 +16,7 @@ export function SiteHeader({ back }) {
         ) : (
           <>
             <a href="/#work">WORK</a>
+            <a href="/#games">GAMES</a>
             <a href="/#process">PROCESS</a>
             <a href="/#about">ABOUT</a>
             <a href={CV_URL} download className="navCta">CV ↓</a>

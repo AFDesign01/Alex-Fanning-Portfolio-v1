@@ -68,9 +68,35 @@ export default function HomePage() {
         <Shelves projects={projects} />
       </section>
 
+      <section className="games shell section" id="games">
+        <div className="sectionHead">
+          <div>
+            <p className="kicker">02 / GAME DESIGN</p>
+            <h2>GAME <span>DESIGN</span></h2>
+          </div>
+          <span className="soonBadge">COMING SOON</span>
+        </div>
+        <div className="shelfRow">
+          <div className="shelfItems">
+            {[1, 2, 3].map((n) => (
+              <div className="pack soon" key={n} aria-hidden={n > 1 ? 'true' : undefined}>
+                <div className="packFace">
+                  <div className="soonFace"><span>COMING<br />SOON</span></div>
+                </div>
+                <div className="shelfTag">
+                  <span className="tagEyebrow">GAME DESIGN</span>
+                  <strong>{n === 1 ? 'IN DEVELOPMENT' : 'RESTOCKING SOON'}</strong>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="shelfBoard" aria-hidden="true" />
+        </div>
+      </section>
+
       <section className="process" id="process">
         <div className="shell">
-          <p className="kicker">02 / HOW I WORK</p>
+          <p className="kicker">03 / HOW I WORK</p>
           <h2>FROM CONCEPT <span>TO PRINT</span></h2>
           <ol className="steps">
             {steps.map((s) => (
@@ -86,7 +112,7 @@ export default function HomePage() {
 
       <section className="about shell section" id="about">
         <div className="aboutHead">
-          <p className="kicker">03 / ABOUT</p>
+          <p className="kicker">04 / ABOUT</p>
           <h2>HI, I’M <span>ALEX.</span></h2>
           <p className="aboutTag marks">PRESTON, UK<br />PACKAGING · BRANDING · PRINT</p>
         </div>
